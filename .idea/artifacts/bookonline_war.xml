@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="bookonline:war">
+    <output-path>$PROJECT_DIR$/bookonline/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>bookonline</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="bookonline-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="bookonline:war exploded" />
+    </root>
+  </artifact>
+</component>

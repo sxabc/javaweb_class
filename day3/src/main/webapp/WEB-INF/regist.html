@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<img src="/code" alt="验证码">
+<a href="" id="change">看不清楚？换一张</a>
+<script>
+    window.onload =function(){
+        const img1 = document.getElementById('change');
+        img1.onclick = function(){
+            const date = new Date().getTime();
+            img.src="/code?" + date;
+        }
+        const img2 = document.getElementsByTagName(img);
+        img2[0].onclick = function(){
+            const date = new Date().getTime();
+            img.src="/code?" + date;
+        }
+    }
+</script>
+</body>
+</html>
