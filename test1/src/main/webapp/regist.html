@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/regist" method="post">
+        <label>
+            账号<input id="username" type="text" name="username">
+        </label>
+        <label>
+            密码<input type="text" name="password1">
+        </label>
+        <label>
+            确认密码<input type="text" name="password2">
+        </label>
+        <label>
+            验证码<input type="text" name="yzm">
+        </label>
+        <img src="/code" >
+        <input type="submit" value="注册">
+    </form>
+</body>
+<script>
+    var a =document.getElementById("username");
+
+    a.onblur = function(){
+        const username = this.value;
+        let xhttp;
+        if(window.XMLHttpRequest){
+            xhttp = new XMLHttpRequest();
+        }else{
+            xhttp = new ActiveXObject("mircosoft.xmlhttp");
+        }
+        xhttp.open("GET","http://localhost/check?username="+username);
+        xhttp.send();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){//回调函数
+                alert(this.responseText)
+
+            }
+        }
+
+    }
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+<h1>aaaaaaaaaaaaaa</h1>
+<button id="btn">点我</button>
+<h3 id="info"></h3>
+</body>
+<script>
+    document.getElementById("btn").onclick = function(){
+        // axios({
+        //     method:"get",
+        //     url:"/ajax2?username=xzp"
+        // }).then(function(resp){
+        //     document.getElementById("info").innerHTML=JSON.stringify(resp.data)
+        // })
+
+        // axios({
+        //     method:"post",
+        //     url:"/ajax2",
+        //     data:"username=xzp"
+        // }).then(function (resp){
+        //     document.getElementById("info").innerHTML=JSON.stringify(resp.data)
+        // })
+
+
+        axios.post("/ajax2","username=xzp").then((resp)=>{
+            document.getElementById("info").innerHTML=JSON.stringify(resp.data)
+        })
+        axios.get("/ajax2?username=xzp").then((resp)=>{
+            document.getElementById("info").innerHTML=JSON.stringify(resp.data)
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.test4.mapper.brandmapper">
+    <delete id="deleteByIds">
+        delete from tb_brand where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+    <select id="selectByPageAndCondition" resultType="com.example.test4.entity.brand">
+        select * from tb_brand
+        <where>
+            <if test="brand.brandName != null and brand.brandName !=''">
+                and brandName like #{brand.brandName}
+            </if>
+            <if test="brand.companyName != null and brand.companyName !=''">
+                and companyName like #{brand.companyName}
+            </if>
+            <if test="brand.status != null">
+                and brand.status = #{brand.status}
+            </if>
+        </where>
+        limit #{begin},#{size}
+    </select>
+    
+    <select id="selectTotalCountByCondition" resultType="java.lang.Integer">
+        select count(*) from tb_brand
+        <where>
+            <if test="brandName != null and brandName !=''">
+                and brandName like #{brandName}
+            </if>
+            <if test="companyName != null and companyName !=''">
+                and companyName like #{companyName}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+</mapper>

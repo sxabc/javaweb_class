@@ -2,15 +2,22 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="test4" />
+        <module name="test2" />
+        <module name="javaWeb" />
+        <module name="day7" />
+        <module name="day4" />
+        <module name="day5" />
         <module name="day2" />
         <module name="day3" />
         <module name="day1" />
-        <module name="javaWeb" />
         <module name="bookonline" />
+        <module name="test1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -18,7 +25,13 @@
       <module name="day1" target="1.8" />
       <module name="day2" target="1.8" />
       <module name="day3" target="1.8" />
+      <module name="day4" target="10" />
+      <module name="day5" target="17" />
+      <module name="day7" target="17" />
       <module name="javaWeb" target="17" />
+      <module name="test1" target="1.8" />
+      <module name="test2" target="17" />
+      <module name="test4" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<div>
+    <form action="/login" method="post">
+        <label>
+            账号<input type="text" name="username">
+        </label>
+        <label>
+            密码<input type="password" name="password">
+        </label>
+        记住我：
+        <input type="checkbox" name="remember">
+        <input type="submit" value="登录">
+    </form>
+    <a href="regist.html">注册</a>
+</div>
+<script>
+    var a =document.getElementById("username");
+
+    a.onblur = function(){
+        const username = this.value;
+        let xhttp;
+        if(window.XMLHttpRequest){
+            xhttp = new XMLHttpRequest();
+        }else{
+            xhttp = new ActiveXObject("mircosoft.xmlhttp");
+        }
+        xhttp.open("GET","http://localhost/check?username="+username);
+        xhttp.send();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){//回调函数
+                alert(this.responseText)
+
+            }
+        }
+    }
+</script>
+</body>
+</html>

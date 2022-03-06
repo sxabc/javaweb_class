@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>aaaaaaaaaabbbbbbbbbbbbbbbaaaaaaaaaaaaaa</h1>
+<div id="info"></div>
+</body>
+<script>
+    //1.创建一个原生js发送异步请求的核心对象
+        let xhttp;
+    //2.这边判断浏览器来确定创建什么
+        if(window.XMLHttpRequest){
+            //新版的浏览器
+            xhttp = new XMLHttpRequest();
+        }else{
+            //3.处理ie类型的奇葩
+            xhttp = new ActiveXObject("Mircosoft.XMLHTTP");
+        }
+
+        var a = function (){
+        //4.打开一个请求
+        xhttp.open("GET","http://localhost/ajax1");
+        //5.将请求发送出去
+        xhttp.send()
+        //6.获取响应，状态嘛就会发生改变
+        xhttp.onreadystatechange = function(){
+                                   //status就是状态码
+            if(this.readyState === 4 && this.status === 200){//回调函数
+
+            document.getElementById("info").innerHTML +="<h2>"+this.responseText+"</h2>";
+        }
+    }}
+    setInterval(a,2000);
+</script>
+</html>
